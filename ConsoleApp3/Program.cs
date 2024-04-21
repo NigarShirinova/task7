@@ -331,19 +331,23 @@ for (int i = 0; i < array14.GetLength(1); i++)
 Console.WriteLine("task16");
 int[,] array16=
 {
-    {1, 1, 0, 0, 1, 1 },
-    {1, 1, 0, 0, 1, 1 },
-    {1, 1, 0, 0, 1, 1 },
-    {1, 1, 0, 0, 1, 1 }
+    {1, 1, 5, 0, 1, 1 },
+    {1, 1, 2, 0, 1, 1 },
+    {1, 1, 3, 0, 1, 1 },
+    {1, 1, 4, 0, 1, 1 }
 };
 int shift=Convert.ToInt32(Console.ReadLine());
 for (int i = 0; i < array16.GetLength(0); i++)
 {
     for (int j = 0; j < array16.GetLength(1); j++)
     {
-        if (j + shift < array16.GetLength(1) && j< shift)
+        if (j + shift < array16.GetLength(1))
         {
-            array16[i, j +shift ] = array16[i, j ];
+            array16[i, j + shift] = array16[i, j];
+            array16[i, j] = 0;
+        }
+        if (j < shift)
+        {
             array16[i, j] = 0;
         }
 
