@@ -339,14 +339,14 @@ int[,] array16=
 int shift=Convert.ToInt32(Console.ReadLine());
 for (int i = 0; i < array16.GetLength(0); i++)
 {
-    for (int j = 0; j < array16.GetLength(1); j++)
+    for (int j = array16.GetLength(1)-1; j >= 0; j--)
     {
-        if (j + shift < array16.GetLength(1))
+        if (j - shift >= 0)
         {
-            array16[i, j + shift] = array16[i, j];
-            array16[i, j] = 0;
+            array16[i, j] = array16[i, j - shift];
+           
         }
-        if (j < shift)
+       else
         {
             array16[i, j] = 0;
         }
@@ -427,7 +427,7 @@ for (int i = 0;i < array18.GetLength(0); i++)
 
         }
 
-        if (lamp == 0 && number!=1)
+        if (lamp == 0 && number!=1 && number>0)
         {
             Console.WriteLine(number);
         }
